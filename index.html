@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Reel Atendimento 4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Jost:wght@300;500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<style>
+  :root { --marrom:#1D130B; --creme:#F6EEE2; --ouro:#D9B877; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--marrom); color:var(--creme); font-family:"Jost",sans-serif; font-weight:300; }
+  main { max-width:460px; margin:0 auto; padding:28px 16px 40px; text-align:center; }
+  .fino { font-family:"Cormorant Garamond",serif; font-style:italic; font-size:26px; margin:0; }
+  h1 { font-family:"Playfair Display",serif; font-weight:600; font-size:44px; margin:2px 0 6px;
+       background:linear-gradient(180deg,#F8EBCB,#E6CB8E 48%,#B08A45); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .fio { width:60px; height:2px; background:var(--ouro); margin:0 auto 22px; }
+  video { width:100%; aspect-ratio:9/16; border-radius:14px; background:#000; display:block; box-shadow:0 10px 40px rgba(0,0,0,.45); }
+  .btn { display:block; margin:22px 0 10px; padding:17px; border-radius:40px; text-decoration:none; font-weight:500; font-size:17px; letter-spacing:1px;
+         color:var(--marrom); background:linear-gradient(180deg,#F8EBCB,#E6CB8E 48%,#B08A45); }
+  .btn.sec { background:transparent; color:var(--ouro); border:1px solid var(--ouro); margin-top:0; }
+  .dica { font-size:14px; line-height:1.5; opacity:.8; margin-top:18px; }
+  .ass { font-size:13px; letter-spacing:2px; color:var(--ouro); margin-top:26px; }
+  .leg { text-align:left; background:rgba(246,238,226,.06); border:1px solid rgba(217,184,119,.35); border-radius:14px; padding:16px; margin-top:16px; }
+  .leg h3 { font-family:"Jost",sans-serif; font-weight:500; font-size:13px; letter-spacing:3px; color:#D9B877; margin:0 0 10px; }
+  .leg p { white-space:pre-line; font-size:15px; line-height:1.55; margin:0 0 12px; }
+  .copiar { font-family:"Jost",sans-serif; font-weight:500; font-size:14px; letter-spacing:1px; color:#1D130B; border:0; border-radius:30px; padding:10px 18px;
+            background:linear-gradient(180deg,#F8EBCB,#E6CB8E 48%,#B08A45); cursor:pointer; }
+  h2.sub { font-family:"Playfair Display",serif; font-weight:600; font-size:28px; color:#E6CB8E; margin:38px 0 4px; }
+</style>
+</head>
+<body>
+<main>
+  <p class="fino">seu reel de</p>
+  <h1>Atendimento</h1>
+  <div class="fio"></div>
+  <video src="reels-atendimento-4.mp4" poster="capa.jpg" controls playsinline preload="metadata"></video>
+  <a class="btn" href="reels-atendimento-4.mp4" download="reels-atendimento-4.mp4">Baixar vídeo (com música)</a>
+  <a class="btn sec" href="reels-atendimento-4-sem-musica.mp4" download="reels-atendimento-4-sem-musica.mp4">Baixar sem música</a>
+  <a class="btn sec" href="#" id="share" hidden>Compartilhar / salvar no celular</a>
+  <p class="dica">18 segundos · vertical 1080×1920 · com trilha.<br>
+  No iPhone, se o download não começar, toque em <b>Compartilhar / salvar</b> e escolha “Salvar vídeo”.<br><br>Para usar uma música do Instagram, baixe a versão <b>sem música</b> e escolha a faixa no próprio app na hora de postar.</p>
+  <h2 class="sub">Legenda</h2>
+  <div class="leg"><h3>OPÇÃO 1</h3><p id="l1">Um momento de pausa, só seu. 🤍
+Enquanto você relaxa, eu cuido de cada detalhe ✨
+
+Agende pelo WhatsApp: (88) 92001-8454
+
+#odontologia #dentista #autocuidado #cuidado #consultorio</p><button class="copiar" data-alvo="l1">Copiar legenda</button></div>
+  <div class="leg"><h3>OPÇÃO 2</h3><p id="l2">Oi, gente! Olha que momento gostoso aqui no consultório 🤍
+Cuidar de você também é isso: calma, conforto e atenção em cada detalhe ✨
+
+Agende pelo WhatsApp: (88) 92001-8454
+
+#odontologia #dentista #autocuidado #bemestar</p><button class="copiar" data-alvo="l2">Copiar legenda</button></div>
+  <h2 class="sub">Capas</h2>
+  <a class="btn" href="capas/">Ver as 3 opções de capa</a>
+  <p class="ass">@biabarros.oficial</p>
+</main>
+<script>
+  const b = document.getElementById('share');
+  if (navigator.canShare) {
+    b.hidden = false;
+    b.addEventListener('click', async e => {
+      e.preventDefault();
+      b.textContent = 'Preparando…';
+      try {
+        const blob = await (await fetch('reels-atendimento-4.mp4')).blob();
+        const f = new File([blob], 'reels-atendimento-4.mp4', { type: 'video/mp4' });
+        if (navigator.canShare({ files: [f] })) await navigator.share({ files: [f] });
+        else location.href = 'reels-atendimento-4.mp4';
+      } catch (err) {}
+      b.textContent = 'Compartilhar / salvar no celular';
+    });
+  }
+  document.querySelectorAll('.copiar').forEach(bt => bt.addEventListener('click', async () => {
+    const t = document.getElementById(bt.dataset.alvo).innerText;
+    try { await navigator.clipboard.writeText(t); }
+    catch (e) { const a = document.createElement('textarea'); a.value = t; document.body.appendChild(a); a.select(); document.execCommand('copy'); a.remove(); }
+    bt.textContent = 'Copiada ✓'; setTimeout(() => bt.textContent = 'Copiar legenda', 2000);
+  }));
+</script>
+</body>
+</html>
